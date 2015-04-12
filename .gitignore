@@ -1,0 +1,12 @@
+# Build folders and files
+bin
+obj
+
+# Nuget packages
+packages/*
+!packages/repositories.config
+
+# User related files
+*.csproj.user
+*.user
+*.suo
