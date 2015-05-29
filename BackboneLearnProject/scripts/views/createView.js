@@ -1,5 +1,5 @@
-﻿define(['jquery', 'underscore', 'backbone', 'models/agent', 'routers/router', 'components/dataService'],
-function ($, _, Backbone, Agent, Router, dataService) {
+﻿define(['jquery', 'underscore', 'backbone', 'models/agent', 'routers/router', 'components/dataService', 'collections/tasks'],
+function ($, _, Backbone, Agent, Router, dataService, Tasks) {
     var createView = Backbone.View.extend({
         template: _.template($('#create-template').html()),
         tagName: 'div',
@@ -16,16 +16,15 @@ function ($, _, Backbone, Agent, Router, dataService) {
         },
         createAgent: function (event) {
             event.preventDefault();
-            var self = this,
-            id;
+            var self = this, id;
             if(this.model.set(this.getCurrentFormValues(), {validate:true}))
             {
-                id = ++app.agentID;
-                this.model.set({ agentID: id, id: id});
                 $.proxy(this.handleImageFile(function () {
-                    app.agents.add(self.model);
-                    dataService.saveData(app.agents);
-                    Router.navigate('#/', {trigger: true});
+                    dataService.createAgent(self.model).then(function (newAgent) {
+                        app.agents.add(newAgent);
+                        app.agents.get(newAgent.agentID).set('tasks', new Tasks());
+                        Router.navigate('#/', { trigger: true });
+                    });
                 }), this);
             }
             else {

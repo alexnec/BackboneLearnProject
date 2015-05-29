@@ -11,9 +11,11 @@ function ($, _, Backbone, dataService) {
             return this;
         },
         toggleTask: function (event) {
+            var self = this;
             this.model.toggleComplete();
-            dataService.saveData(app.agents);
-            this.render();
+            dataService.updateTask(this.model).then(function () {
+                self.render();
+            });
         }
     });
     return taskView;

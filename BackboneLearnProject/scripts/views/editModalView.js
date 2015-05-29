@@ -12,9 +12,11 @@ function ($, _, Backbone, ModalView, dataService) {
         },
         updateAgent: function (event) {
             event.preventDefault();
+            var self = this;
             if (this.model.set(this.getCurrentFormValues(), { validate: true })) {
-                dataService.saveData(app.agents);
-                this.hideModal();
+                dataService.updateAgent(this.model).then(function () {
+                    self.hideModal();
+                });
             }
             else {
                 $('#validationError').text(this.model.validationError);

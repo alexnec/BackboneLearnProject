@@ -1,9 +1,9 @@
 ﻿define(['backbone'], function (Backbone) {
     var task = Backbone.Model.extend({
         defaults: {
-            taskID: 0,
             description: '',
-            isComplete: false
+            isComplete: false,
+            agentID: 0
         },
         idAttribute: 'taskID',
         validate: function (attrs, options) {

@@ -1,7 +1,9 @@
 ﻿define(['backbone', 'collections/tasks'], function (Backbone, Tasks) {
     var agent = Backbone.Model.extend({
+        url: function () {
+            return '/api/agents/' + this.get('agentID');
+        },
         defaults: {
-            agentID: 0,
             codeName: '',
             firstName: '',
             lastName: '',

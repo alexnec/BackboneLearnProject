@@ -36,15 +36,17 @@ function ($, _, Backbone, EditModal, TaskView, Task, Router, dataService) {
         deleteAgent: function() {
             if (confirm('Are you sure you want to delete the agent?')) {
                 app.agents.remove(this.model);
-                dataService.saveData(app.agents);
-                Router.navigate('#/', { trigger: true });
+                dataService.deleteAgent(this.model).then(function () {
+                    Router.navigate('#/', { trigger: true });
+                });
             }
         },
         back: function () {
             Router.navigate('#/', { trigger: true });
         },
         addNewTask: function (event) {
-            var txt = $('#txtNewTask');
+            var txt = $('#txtNewTask'),
+                self = this;
             if (event.which !== this.$cache.EnterKey || !txt.val().trim()) {
                 return;
             }
@@ -53,9 +55,10 @@ function ($, _, Backbone, EditModal, TaskView, Task, Router, dataService) {
                 id: app.taskID, taskID: app.taskID, description:
                 txt.val()
             }));
-            dataService.saveData(app.agents);
-            txt.val('');
-            this.render();
+            dataService.addTask(task).then(function () {
+                txt.val('');
+                self.render();
+            });
         },
         modelChanged: function () {
             this.render();

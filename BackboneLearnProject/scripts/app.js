@@ -23,7 +23,8 @@
 var app = app || {};
 require(['routers/router', 'components/dataService'], function (router, dataService) {
     $(document).ready(function () {
-        dataService.getData();
-        router.start();
+        dataService.getData().then(function () {
+            router.start();
+        });
     });
 });
