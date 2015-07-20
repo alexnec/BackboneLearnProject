@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackboneLearnProject", "BackboneLearnProject\BackboneLearnProject.csproj", "{FDE318F4-D4CB-49A4-B0F2-C6DBDAA66963}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestJs", "UnitTestJs\UnitTestJs.csproj", "{1BD0F46B-07F3-4445-B862-9D8BA5453D93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FDE318F4-D4CB-49A4-B0F2-C6DBDAA66963}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDE318F4-D4CB-49A4-B0F2-C6DBDAA66963}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDE318F4-D4CB-49A4-B0F2-C6DBDAA66963}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BD0F46B-07F3-4445-B862-9D8BA5453D93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD0F46B-07F3-4445-B862-9D8BA5453D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD0F46B-07F3-4445-B862-9D8BA5453D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD0F46B-07F3-4445-B862-9D8BA5453D93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
